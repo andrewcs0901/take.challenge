@@ -4,7 +4,7 @@ import { HttpService, Injectable } from '@nestjs/common';
 export class AppService {
   constructor(private httpService: HttpService) {}
 
-  getHello(language = `C#`): any {
+  getRepos(language = `C#`): any {
     const repos = this.httpService.get(
       `https://api.github.com/users/takenet/repos`,
     );
