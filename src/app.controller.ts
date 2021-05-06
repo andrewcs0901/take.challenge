@@ -6,7 +6,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getRepos(@Query('language') language?: string): any {
+  async getRepos(@Query('language') language?: string): Promise<any> {
     return this.appService.getRepos(language);
   }
 }
