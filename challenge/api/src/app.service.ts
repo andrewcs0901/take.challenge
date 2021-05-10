@@ -9,7 +9,8 @@ export class AppService {
       `https://api.github.com/users/takenet/repos`,
     );
     const response = {
-        ...(await repos.toPromise().then((res) =>
+      repos:
+        (await repos.toPromise().then((res) =>
           res.data
             ?.filter((repo) => repo.language === language)
             .map((repo) => ({
@@ -21,7 +22,7 @@ export class AppService {
             .sort((repoA, repoB) =>
               repoA.created_at <= repoB.created_at ? -1 : 1,
             ),
-        )),
+        )) || [],
     };
     return response;
   }
